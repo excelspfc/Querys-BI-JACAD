@@ -13,8 +13,10 @@ cb.nome_para_impressao3 'COORDENADOR DE AREA',
 t.nome_red 'TURMA REDUZIDO',
 UPPER(pi.nome) 'SEMESTRE DA TURMA',
 UPPER(p.nome) 'SEMESTRE DA DISCIPLINA NA MATRIZ',
-mdpc.id_course 'ID CURSO VINCULO MOODLE'
-
+mdpc.id_course 'ID CURSO VINCULO MOODLE',
+d.carga_horaria_teorica AS 'CARGA HORÁRIA TEÓRICA',
+d.carga_horaria AS 'CARGA HORÁRIA',
+d.carga_horaria_cobrada AS 'CARGA HORÁRIA COBRADA'
 
 FROM tb_disciplina_professor dp
 
@@ -33,6 +35,5 @@ LEFT JOIN tb_funcionario fcoord ON fcoord.id_funcionario = profcoord.id_funciona
 LEFT JOIN tb_perfil perfilcoord ON  perfilcoord.id_perfil = fcoord.id_perfil
 LEFT JOIN tb_moodle_disciplina_professor_course mdpc ON  mdpc.id_disciplina_professor = dp.id_disciplina_professor
 LEFT JOIN tb_periodo_item pi ON  pi.id_periodo_item = t.id_periodo_item
-
 
 WHERE <WHERE_SUB_QUERY>
